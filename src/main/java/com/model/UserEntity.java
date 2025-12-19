@@ -1,5 +1,4 @@
 package com.example.demo.model;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,11 +25,9 @@ public class UserEntity {
 
     private LocalDateTime createdAt;
 
-    // ✅ DEFAULT CONSTRUCTOR (NAME MATCHES CLASS)
     public UserEntity() {
     }
 
-    // ✅ PARAMETERIZED CONSTRUCTOR (NAME MATCHES CLASS)
     public UserEntity(Long id, String fullName, String email, String password, String role) {
         this.id = id;
         this.fullName = fullName;
@@ -46,6 +43,10 @@ public class UserEntity {
             this.role = "USER";
         }
     }
+
+    // getters & setters (unchanged)
+}
+
 
     public Long getId() {
         return id;

@@ -22,7 +22,6 @@ public class DuplicateDetectionLog {
     private Ticket matchedTicket;
 
     private Double matchScore;
-
     private LocalDateTime detectedAt;
 
     public DuplicateDetectionLog() {
@@ -39,6 +38,10 @@ public class DuplicateDetectionLog {
     public void onCreate() {
         this.detectedAt = LocalDateTime.now();
     }
+
+    // getters & setters
+}
+
 
     public Long getId() {
         return id;

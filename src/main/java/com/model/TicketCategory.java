@@ -36,6 +36,10 @@ public class TicketCategory {
         this.createdAt = LocalDateTime.now();
     }
 
+    // getters & setters
+}
+
+
     public Long getId() {
         return id;
     }

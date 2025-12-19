@@ -19,9 +19,7 @@ public class DuplicateRule {
     private String ruleName;
 
     private String matchType;
-
     private Double threshold;
-
     private LocalDateTime createdAt;
 
     public DuplicateRule() {
@@ -38,6 +36,10 @@ public class DuplicateRule {
     public void onCreate() {
         this.createdAt = LocalDateTime.now();
     }
+
+    // getters & setters
+}
+
 
     public Long getId() {
         return id;

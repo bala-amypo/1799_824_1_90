@@ -1,5 +1,4 @@
-package com.model;
-
+package com.example.demo.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,24 +21,15 @@ public class Ticket {
     private TicketCategory category;
 
     private String subject;
-
     private String description;
-
     private String status;
-
     private LocalDateTime createdAt;
 
-    // ✅ Default constructor
     public Ticket() {
     }
 
-    // ✅ Parameterized constructor
-    public Ticket(Long id,
-                  UserEntity user,
-                  TicketCategory category,
-                  String subject,
-                  String description,
-                  String status) {
+    public Ticket(Long id, UserEntity user, TicketCategory category,
+                  String subject, String description, String status) {
         this.id = id;
         this.user = user;
         this.category = category;
@@ -55,6 +45,10 @@ public class Ticket {
             this.status = "OPEN";
         }
     }
+
+    // getters & setters
+}
+
 
     public Long getId() {
         return id;
