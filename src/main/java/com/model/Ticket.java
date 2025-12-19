@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,7 +16,7 @@ public class Ticket {
     private Long id;
 
     @ManyToOne
-    private User user;
+    private UserEntity user;
 
     @ManyToOne
     private TicketCategory category;
@@ -29,10 +29,17 @@ public class Ticket {
 
     private LocalDateTime createdAt;
 
+    // ✅ Default constructor
     public Ticket() {
     }
 
-    public Ticket(Long id, User user, TicketCategory category, String subject, String description, String status) {
+    // ✅ Parameterized constructor
+    public Ticket(Long id,
+                  UserEntity user,
+                  TicketCategory category,
+                  String subject,
+                  String description,
+                  String status) {
         this.id = id;
         this.user = user;
         this.category = category;
@@ -57,11 +64,11 @@ public class Ticket {
         this.id = id;
     }
 
-    public User getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 
