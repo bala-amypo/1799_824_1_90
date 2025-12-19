@@ -26,6 +26,15 @@ public class UserEntity {
 
     private LocalDateTime createdAt;
 
+     @PrePersist
+    public void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        if (this.role == null) {
+            this.role = "USER";
+        }
+    }
+
+
     public User() {
     }
 
@@ -37,14 +46,7 @@ public class UserEntity {
         this.role = role;
     }
 
-    @PrePersist
-    public void onCreate() {
-        this.createdAt = LocalDateTime.now();
-        if (this.role == null) {
-            this.role = "USER";
-        }
-    }
-
+   
     public Long getId() {
         return id;
     }
