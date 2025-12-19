@@ -26,19 +26,12 @@ public class UserEntity {
 
     private LocalDateTime createdAt;
 
-     @PrePersist
-    public void onCreate() {
-        this.createdAt = LocalDateTime.now();
-        if (this.role == null) {
-            this.role = "USER";
-        }
+    // ✅ DEFAULT CONSTRUCTOR (NAME MATCHES CLASS)
+    public UserEntity() {
     }
 
-
-    public User() {
-    }
-
-    public User(Long id, String fullName, String email, String password, String role) {
+    // ✅ PARAMETERIZED CONSTRUCTOR (NAME MATCHES CLASS)
+    public UserEntity(Long id, String fullName, String email, String password, String role) {
         this.id = id;
         this.fullName = fullName;
         this.email = email;
@@ -46,7 +39,14 @@ public class UserEntity {
         this.role = role;
     }
 
-   
+    @PrePersist
+    public void onCreate() {
+        this.createdAt = LocalDateTime.now();
+        if (this.role == null) {
+            this.role = "USER";
+        }
+    }
+
     public Long getId() {
         return id;
     }
