@@ -5,5 +5,5 @@ import com.example.demo.model.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
-    User findByEmail(String email); // optional helper for login
+    UserEntity findByEmail(String email); // optional helper for login
 }
