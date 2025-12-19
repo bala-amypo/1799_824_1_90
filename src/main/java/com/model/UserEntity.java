@@ -9,7 +9,7 @@ import jakarta.persistence.PrePersist;
 import java.time.LocalDateTime;
 
 @Entity
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
