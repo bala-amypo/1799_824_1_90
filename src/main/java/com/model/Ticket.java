@@ -47,7 +47,7 @@ public class Ticket {
     }
 
     // getters & setters
-}
+
 
 
     public Long getId() {

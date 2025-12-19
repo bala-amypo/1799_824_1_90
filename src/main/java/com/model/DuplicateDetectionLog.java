@@ -40,7 +40,7 @@ public class DuplicateDetectionLog {
     }
 
     // getters & setters
-}
+
 
 
     public Long getId() {

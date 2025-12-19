@@ -37,7 +37,7 @@ public class TicketCategory {
     }
 
     // getters & setters
-}
+
 
 
     public Long getId() {

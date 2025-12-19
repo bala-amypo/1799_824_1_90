@@ -38,7 +38,7 @@ public class DuplicateRule {
     }
 
     // getters & setters
-}
+
 
 
     public Long getId() {
