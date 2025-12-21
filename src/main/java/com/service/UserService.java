@@ -1,6 +1,6 @@
-package service;
+package com.service;
 
-import model.User;
+import com.model.User;
 
 public interface UserService {
     User getUserById(Long userId);

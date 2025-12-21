@@ -1,7 +1,7 @@
-package service.implementation;
+package com.service.implementation;
 
-import service.UserService;
-import model.User;
+import com.model.User;
+import com.service.UserService;
 import org.springframework.stereotype.Service;
 
 @Service

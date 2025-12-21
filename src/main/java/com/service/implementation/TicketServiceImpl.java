@@ -1,7 +1,7 @@
-package service.implementation;
+package com.service.implementation;
 
-import service.TicketService;
-import model.Ticket;
+import com.model.Ticket;
+import com.service.TicketService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

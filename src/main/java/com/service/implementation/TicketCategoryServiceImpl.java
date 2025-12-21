@@ -1,6 +1,6 @@
-package service.implementation;
+package com.service.implementation;
 
-import service.TicketCategoryService;
+import com.service.TicketCategoryService;
 import org.springframework.stereotype.Service;
 
 @Service

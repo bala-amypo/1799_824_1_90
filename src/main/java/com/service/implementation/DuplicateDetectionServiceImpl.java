@@ -1,7 +1,9 @@
-package service.implementation;
+package com.service.implementation;
 
-import service.*;
-import model.Ticket;
+import com.model.Ticket;
+import com.service.DuplicateDetectionService;
+import com.service.DuplicateRuleService;
+import com.service.TicketService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
