@@ -1,10 +1,8 @@
 package com.service;
 
-import com.entity.TicketCategory;
+import com.model.TicketCategory;
 
 public interface TicketCategoryService {
 
-    boolean isCategoryDuplicate(TicketCategory ticketCategory);
-
-    TicketCategory saveTicketCategory(TicketCategory ticketCategory);
+    TicketCategory saveCategory(TicketCategory category);
 }
