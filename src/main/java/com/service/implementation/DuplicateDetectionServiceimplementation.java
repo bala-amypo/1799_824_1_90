@@ -1,18 +1,34 @@
-package com.example.demo.service.implementation;
+package service.implementation;
 
-import com.example.demo.model.Ticket;
-import com.example.demo.repository.*;
-import com.example.demo.service.DuplicateDetectionService;
+import service.*;
+import model.Ticket;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class DuplicateDetectionServiceImpl implements DuplicateDetectionService {
 
-    public DuplicateDetectionServiceImpl(TicketRepository t,
-                                         DuplicateRuleRepository r,
-                                         DuplicateDetectionLogRepository l) {}
+    private final TicketService ticketService;
+    private final DuplicateRuleService duplicateRuleService;
 
-    public boolean isDuplicate(Ticket ticket) {
+    public DuplicateDetectionServiceImpl(
+            TicketService ticketService,
+            DuplicateRuleService duplicateRuleService) {
+        this.ticketService = ticketService;
+        this.duplicateRuleService = duplicateRuleService;
+    }
+
+    @Override
+    public boolean checkDuplicate(Ticket newTicket) {
+
+        List<Ticket> existingTickets = ticketService.getAllOpenTickets();
+
+        for (Ticket ticket : existingTickets) {
+            if (duplicateRuleService.isDuplicate(ticket, newTicket)) {
+                return true;
+            }
+        }
         return false;
     }
 }

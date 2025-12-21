@@ -1,20 +1,24 @@
-package com.example.demo.service.implementation;
+package service.implementation;
 
-import com.example.demo.model.DuplicateRule;
-import com.example.demo.repository.DuplicateRuleRepository;
-import com.example.demo.service.DuplicateRuleService;
+import service.DuplicateRuleService;
+import model.Ticket;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DuplicateRuleServiceImpl implements DuplicateRuleService {
 
-    private final DuplicateRuleRepository repo;
+    @Override
+    public boolean isDuplicate(Ticket existing, Ticket incoming) {
 
-    public DuplicateRuleServiceImpl(DuplicateRuleRepository repo) {
-        this.repo = repo;
-    }
+        boolean sameTitle = existing.getTitle()
+                .equalsIgnoreCase(incoming.getTitle());
 
-    public DuplicateRule getByRuleName(String name) {
-        return repo.findByRuleName(name);
+        boolean sameCategory = existing.getCategoryId()
+                .equals(incoming.getCategoryId());
+
+        boolean sameUser = existing.getUserId()
+                .equals(incoming.getUserId());
+
+        return sameTitle && sameCategory && sameUser;
     }
 }

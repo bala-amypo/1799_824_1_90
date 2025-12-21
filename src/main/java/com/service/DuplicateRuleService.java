@@ -1,7 +1,7 @@
-package com.example.demo.service;
+package service;
 
-import com.example.demo.model.DuplicateRule;
+import model.Ticket;
 
 public interface DuplicateRuleService {
-    DuplicateRule getByRuleName(String name);
+    boolean isDuplicate(Ticket existingTicket, Ticket newTicket);
 }

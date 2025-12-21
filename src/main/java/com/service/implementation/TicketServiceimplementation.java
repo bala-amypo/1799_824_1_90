@@ -1,22 +1,24 @@
-package com.example.demo.service.implementation;
+package service.implementation;
 
-import com.example.demo.model.Ticket;
-import com.example.demo.repository.*;
-import com.example.demo.service.TicketService;
+import service.TicketService;
+import model.Ticket;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class TicketServiceImpl implements TicketService {
 
-    private final TicketRepository ticketRepo;
+    private final List<Ticket> ticketStore = new ArrayList<>();
 
-    public TicketServiceImpl(TicketRepository ticketRepo,
-                             UserRepository userRepo,
-                             TicketCategoryRepository categoryRepo) {
-        this.ticketRepo = ticketRepo;
+    @Override
+    public List<Ticket> getAllOpenTickets() {
+        return ticketStore;
     }
 
-    public Ticket saveTicket(Ticket ticket) {
-        return ticketRepo.save(ticket);
+    @Override
+    public void saveTicket(Ticket ticket) {
+        ticketStore.add(ticket);
     }
 }

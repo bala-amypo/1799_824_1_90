@@ -1,7 +1,5 @@
-package com.example.demo.service;
-
-import com.example.demo.model.TicketCategory;
+package service;
 
 public interface TicketCategoryService {
-    TicketCategory saveCategory(TicketCategory category);
+    String getCategoryById(Long categoryId);
 }

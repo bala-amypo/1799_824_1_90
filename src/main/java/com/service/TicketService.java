@@ -1,7 +1,9 @@
-package com.example.demo.service;
+package service;
 
-import com.example.demo.model.Ticket;
+import model.Ticket;
+import java.util.List;
 
 public interface TicketService {
-    Ticket saveTicket(Ticket ticket);
+    List<Ticket> getAllOpenTickets();
+    void saveTicket(Ticket ticket);
 }

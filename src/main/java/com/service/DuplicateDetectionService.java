@@ -1,7 +1,7 @@
-package com.example.demo.service;
+package service;
 
-import com.example.demo.model.Ticket;
+import model.Ticket;
 
 public interface DuplicateDetectionService {
-    boolean isDuplicate(Ticket ticket);
+    boolean checkDuplicate(Ticket newTicket);
 }
