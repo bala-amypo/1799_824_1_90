@@ -1,8 +1,8 @@
-package com.service.implementation;
+package com.example.demo.service.implementation;
 
-import com.model.User;
-import com.repository.UserRepository;
-import com.service.UserService;
+import com.example.demo.model.User;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.service.UserService;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -10,7 +10,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
-    // Constructor order MUST match test suite
+    // Constructor order EXACT (AmyPO rule)
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

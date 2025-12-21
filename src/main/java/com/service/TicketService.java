@@ -1,6 +1,7 @@
-package com.service;
+package com.example.demo.service;
 
-import com.model.Ticket;
+import com.example.demo.model.Ticket;
+
 import java.util.List;
 
 public interface TicketService {

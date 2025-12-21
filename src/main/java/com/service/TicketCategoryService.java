@@ -1,6 +1,6 @@
-package com.service;
+package com.example.demo.service;
 
-import com.model.TicketCategory;
+import com.example.demo.model.TicketCategory;
 
 public interface TicketCategoryService {
 
