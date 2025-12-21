@@ -8,18 +8,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class TicketCategoryServiceImpl implements TicketCategoryService {
 
-    private final TicketCategoryRepository ticketCategoryRepository;
+    private final TicketCategoryRepository repo;
 
-    // Constructor order EXACT
-    public TicketCategoryServiceImpl(TicketCategoryRepository ticketCategoryRepository) {
-        this.ticketCategoryRepository = ticketCategoryRepository;
+    public TicketCategoryServiceImpl(TicketCategoryRepository repo) {
+        this.repo = repo;
     }
 
-    @Override
     public TicketCategory saveCategory(TicketCategory category) {
-        if (ticketCategoryRepository.existsByCategoryName(category.getCategoryName())) {
-            throw new RuntimeException("category already exists");
-        }
-        return ticketCategoryRepository.save(category);
+        return repo.save(category);
     }
 }

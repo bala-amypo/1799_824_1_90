@@ -8,23 +8,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository;
+    private final UserRepository repo;
 
-    // Constructor order EXACT (AmyPO rule)
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserServiceImpl(UserRepository repo) {
+        this.repo = repo;
     }
 
-    @Override
     public boolean isUserDuplicate(User user) {
-        return userRepository.existsByEmail(user.getEmail());
+        return repo.existsByEmail(user.getEmail());
     }
 
-    @Override
     public User saveUser(User user) {
-        if (isUserDuplicate(user)) {
-            throw new RuntimeException("email already exists");
-        }
-        return userRepository.save(user);
+        return repo.save(user);
     }
 }
