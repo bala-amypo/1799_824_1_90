@@ -1,9 +1,8 @@
-package com.example.demo.service;
+package com.service;
 
-import com.example.demo.entity.Ticket;
+import com.entity.Ticket;
 
 public interface DuplicateDetectionService {
 
-    // Detect duplicate ticket based on configured rules
     boolean detectDuplicate(Ticket ticket);
 }

@@ -1,12 +1,10 @@
-package com.example.demo.service;
+package com.service;
 
-import com.example.demo.entity.Ticket;
+import com.entity.Ticket;
 
 public interface TicketService {
 
-    // Check whether ticket already exists (duplicate)
     boolean isTicketDuplicate(Ticket ticket);
 
-    // Save ticket details if not duplicate
     Ticket saveTicket(Ticket ticket);
 }
