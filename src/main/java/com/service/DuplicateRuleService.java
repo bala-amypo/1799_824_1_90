@@ -1,8 +1,8 @@
-package com.service;
+package com.example.demo.service;
 
-import com.model.DuplicateRule;
+import com.example.demo.model.DuplicateRule;
 
 public interface DuplicateRuleService {
 
-    DuplicateRule getRuleByName(String name);
+    DuplicateRule saveRule(DuplicateRule rule);
 }

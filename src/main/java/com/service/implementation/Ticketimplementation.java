@@ -1,10 +1,10 @@
-package com.service.implementation;
+package com.example.demo.service.implementation;
 
-import com.model.Ticket;
-import com.repository.TicketRepository;
-import com.repository.UserRepository;
-import com.repository.TicketCategoryRepository;
-import com.service.TicketService;
+import com.example.demo.model.Ticket;
+import com.example.demo.repository.TicketRepository;
+import com.example.demo.repository.UserRepository;
+import com.example.demo.repository.TicketCategoryRepository;
+import com.example.demo.service.TicketService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,11 +16,12 @@ public class TicketServiceImpl implements TicketService {
     private final UserRepository userRepository;
     private final TicketCategoryRepository ticketCategoryRepository;
 
-    // Constructor order EXACT
+    // Constructor order EXACT (AmyPO rule)
     public TicketServiceImpl(
             TicketRepository ticketRepository,
             UserRepository userRepository,
-            TicketCategoryRepository ticketCategoryRepository) {
+            TicketCategoryRepository ticketCategoryRepository
+    ) {
         this.ticketRepository = ticketRepository;
         this.userRepository = userRepository;
         this.ticketCategoryRepository = ticketCategoryRepository;
@@ -28,6 +29,9 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public Ticket saveTicket(Ticket ticket) {
+        if (ticket.getDescription() == null || ticket.getDescription().isEmpty()) {
+            throw new RuntimeException("description is required");
+        }
         return ticketRepository.save(ticket);
     }
 
