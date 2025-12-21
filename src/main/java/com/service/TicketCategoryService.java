@@ -1,5 +1,5 @@
-package com.service;
+package com.example.demo.service;
 
 public interface TicketCategoryService {
-    String getCategoryById(Long categoryId);
+    String getCategoryName(Long categoryId);
 }

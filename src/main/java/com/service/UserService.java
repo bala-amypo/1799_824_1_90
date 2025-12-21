@@ -1,7 +1,7 @@
-package com.service;
+package com.example.demo.service;
 
-import com.model.User;
+import com.example.demo.model.User;
 
 public interface UserService {
-    User getUserById(Long userId);
+    User getUserById(Long id);
 }
