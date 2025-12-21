@@ -1,10 +1,8 @@
 package com.service;
 
-import com.entity.DuplicateRule;
+import com.model.DuplicateRule;
 
 public interface DuplicateRuleService {
 
-    boolean isDuplicateRuleExists(DuplicateRule duplicateRule);
-
-    DuplicateRule saveDuplicateRule(DuplicateRule duplicateRule);
+    DuplicateRule getRuleByName(String name);
 }

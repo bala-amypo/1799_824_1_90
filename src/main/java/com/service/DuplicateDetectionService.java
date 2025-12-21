@@ -1,8 +1,8 @@
 package com.service;
 
-import com.entity.Ticket;
+import com.model.Ticket;
 
 public interface DuplicateDetectionService {
 
-    boolean detectDuplicate(Ticket ticket);
+    boolean isDuplicate(Ticket ticket);
 }
