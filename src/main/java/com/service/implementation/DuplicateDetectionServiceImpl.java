@@ -1,12 +1,10 @@
-package com.service.implementation;
+package com.example.demo.service.implementation;
 
-import com.model.Ticket;
-import com.service.DuplicateDetectionService;
-import com.service.DuplicateRuleService;
-import com.service.TicketService;
+import com.example.demo.model.Ticket;
+import com.example.demo.service.DuplicateDetectionService;
+import com.example.demo.service.DuplicateRuleService;
+import com.example.demo.service.TicketService;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class DuplicateDetectionServiceImpl implements DuplicateDetectionService {
@@ -23,14 +21,7 @@ public class DuplicateDetectionServiceImpl implements DuplicateDetectionService 
 
     @Override
     public boolean checkDuplicate(Ticket newTicket) {
-
-        List<Ticket> existingTickets = ticketService.getAllOpenTickets();
-
-        for (Ticket ticket : existingTickets) {
-            if (duplicateRuleService.isDuplicate(ticket, newTicket)) {
-                return true;
-            }
-        }
-        return false;
+        return ticketService.getAllTickets().stream()
+                .anyMatch(t -> duplicateRuleService.isDuplicate(t, newTicket));
     }
 }

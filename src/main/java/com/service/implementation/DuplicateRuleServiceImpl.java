@@ -1,24 +1,15 @@
-package com.service.implementation;
+package com.example.demo.service.implementation;
 
-import com.model.Ticket;
-import com.service.DuplicateRuleService;
+import com.example.demo.model.Ticket;
+import com.example.demo.service.DuplicateRuleService;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DuplicateRuleServiceImpl implements DuplicateRuleService {
 
     @Override
-    public boolean isDuplicate(Ticket existing, Ticket incoming) {
-
-        boolean sameTitle =
-                existing.getTitle().equalsIgnoreCase(incoming.getTitle());
-
-        boolean sameUser =
-                existing.getUserId().equals(incoming.getUserId());
-
-        boolean sameCategory =
-                existing.getCategoryId().equals(incoming.getCategoryId());
-
-        return sameTitle && sameUser && sameCategory;
+    public boolean isDuplicate(Ticket existingTicket, Ticket newTicket) {
+        return existingTicket.getTitle()
+                .equalsIgnoreCase(newTicket.getTitle());
     }
 }
