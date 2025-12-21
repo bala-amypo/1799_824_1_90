@@ -1,8 +1,7 @@
-package com.example.demo.service;
+package service;
 
-import com.example.demo.model.User;
+import model.User;
 
 public interface UserService {
-    boolean isUserDuplicate(User user);
-    User saveUser(User user);
+    User getUserById(Long userId);
 }
