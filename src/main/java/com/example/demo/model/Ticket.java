@@ -15,7 +15,7 @@ public class Ticket {
     private Long id;
 
     @ManyToOne
-    private UserEntity user;
+    private User user;
 
     @ManyToOne
     private TicketCategory category;
