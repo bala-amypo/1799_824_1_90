@@ -8,7 +8,7 @@ import jakarta.persistence.PrePersist;
 import java.time.LocalDateTime;
 
 @Entity
-public class UserEntity {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,10 +25,10 @@ public class UserEntity {
 
     private LocalDateTime createdAt;
 
-    public UserEntity() {
+    public User() {
     }
 
-    public UserEntity(Long id, String fullName, String email, String password, String role) {
+    public User(Long id, String fullName, String email, String password, String role) {
         this.id = id;
         this.fullName = fullName;
         this.email = email;
