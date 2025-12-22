@@ -1,11 +1,6 @@
 package com.example.demo.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.PrePersist;
-import java.time.LocalDateTime;
+
+import jakarta.persistence.*;
 
 @Entity
 public class Ticket {
@@ -14,41 +9,16 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    private User user;
+    private String title;
 
-    @ManyToOne
-    private TicketCategory category;
-
-    private String subject;
     private String description;
-    private String status;
-    private LocalDateTime createdAt;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;   // ✅ ONLY User (NOT UserEntity)
 
     public Ticket() {
     }
-
-    public Ticket(Long id, UserEntity user, TicketCategory category,
-                  String subject, String description, String status) {
-        this.id = id;
-        this.user = user;
-        this.category = category;
-        this.subject = subject;
-        this.description = description;
-        this.status = status;
-    }
-
-    @PrePersist
-    public void onCreate() {
-        this.createdAt = LocalDateTime.now();
-        if (this.status == null) {
-            this.status = "OPEN";
-        }
-    }
-
-    // getters & setters
-
-
 
     public Long getId() {
         return id;
@@ -58,28 +28,12 @@ public class Ticket {
         this.id = id;
     }
 
-    public UserEntity getUser() {
-        return user;
+    public String getTitle() {
+        return title;
     }
 
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
-
-    public TicketCategory getCategory() {
-        return category;
-    }
-
-    public void setCategory(TicketCategory category) {
-        this.category = category;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -90,19 +44,11 @@ public class Ticket {
         this.description = description;
     }
 
-    public String getStatus() {
-        return status;
+    public User getUser() {     // ✅ FIXED
+        return user;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setUser(User user) {   // ✅ FIXED
+        this.user = user;
     }
 }
