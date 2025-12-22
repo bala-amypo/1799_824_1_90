@@ -1,11 +1,11 @@
-package com.example.demo.service;
+// package com.example.demo.service;
 
-import com.example.demo.model.DuplicateRule;
-import java.util.List;
+// import com.example.demo.model.DuplicateRule;
+// import java.util.List;
 
-public interface DuplicateRuleService {
+// public interface DuplicateRuleService {
 
-    DuplicateRule saveRule(DuplicateRule rule);
+//     DuplicateRule saveRule(DuplicateRule rule);
 
-    List<DuplicateRule> getAllRules();
-}
+//     List<DuplicateRule> getAllRules();
+// }

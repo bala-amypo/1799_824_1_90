@@ -1,13 +1,13 @@
-package com.example.demo.service;
+// package com.example.demo.service;
 
-import com.example.demo.model.User;
-import java.util.List;
+// import com.example.demo.model.User;
+// import java.util.List;
 
-public interface UserService {
+// public interface UserService {
 
-    User saveUser(User user);
+//     User saveUser(User user);
 
-    User getUserById(Long id);
+//     User getUserById(Long id);
 
-    List<User> getAllUsers();
-}
+//     List<User> getAllUsers();
+// }
