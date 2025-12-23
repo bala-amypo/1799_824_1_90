@@ -1,11 +1,6 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.PrePersist;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,47 +11,28 @@ public class DuplicateDetectionLog {
     private Long id;
 
     @ManyToOne
-    private Ticket ticket;
+    private Ticket originalTicket;
 
     @ManyToOne
     private Ticket matchedTicket;
 
-    private Double matchScore;
+    private double matchScore;
+
     private LocalDateTime detectedAt;
 
     public DuplicateDetectionLog() {
     }
 
-    public DuplicateDetectionLog(Long id, Ticket ticket, Ticket matchedTicket, Double matchScore) {
-        this.id = id;
-        this.ticket = ticket;
-        this.matchedTicket = matchedTicket;
-        this.matchScore = matchScore;
-    }
-
-    @PrePersist
-    public void onCreate() {
-        this.detectedAt = LocalDateTime.now();
-    }
-
-    // getters & setters
-
-
-
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Ticket getOriginalTicket() {
+        return originalTicket;
     }
 
-    public Ticket getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
+    public void setOriginalTicket(Ticket originalTicket) {
+        this.originalTicket = originalTicket;
     }
 
     public Ticket getMatchedTicket() {
@@ -67,11 +43,11 @@ public class DuplicateDetectionLog {
         this.matchedTicket = matchedTicket;
     }
 
-    public Double getMatchScore() {
+    public double getMatchScore() {
         return matchScore;
     }
 
-    public void setMatchScore(Double matchScore) {
+    public void setMatchScore(double matchScore) {
         this.matchScore = matchScore;
     }
 
