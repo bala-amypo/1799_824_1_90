@@ -13,14 +13,10 @@ public class DuplicateDetectionController {
 
     private final DuplicateDetectionService duplicateDetectionService;
 
-    // Constructor injection
+    
     public DuplicateDetectionController(DuplicateDetectionService duplicateDetectionService) {
         this.duplicateDetectionService = duplicateDetectionService;
-    }
-
-    /**
-     * Detect duplicate tickets for a given new ticket
-     */
+    
     @PostMapping("/check")
     public List<DuplicateDetectionLog> detectDuplicates(@RequestBody Ticket ticket) {
         return duplicateDetectionService.detectDuplicates(ticket);
