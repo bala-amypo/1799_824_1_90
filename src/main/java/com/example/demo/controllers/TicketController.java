@@ -29,7 +29,7 @@ public class TicketController {
         return ticketService.getTicketById(id);
     }
 
-    // Get all tickets
+    
     @GetMapping
     public List<Ticket> getAllTickets() {
         return ticketService.getAllTickets();

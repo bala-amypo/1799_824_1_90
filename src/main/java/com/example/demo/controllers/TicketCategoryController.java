@@ -23,7 +23,7 @@ public class TicketCategoryController {
         return ticketCategoryService.createCategory(category);
     }
 
-    // Get all ticket categories
+   
     @GetMapping
     public List<TicketCategory> getAllCategories() {
         return ticketCategoryService.getAllCategories();
