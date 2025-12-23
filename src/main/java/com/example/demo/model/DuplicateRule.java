@@ -1,12 +1,6 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
-import java.time.LocalDateTime;
+import jakarta.persistence.*;
 
 @Entity
 public class DuplicateRule {
@@ -15,69 +9,26 @@ public class DuplicateRule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
-    private String ruleName;
-
-    private String matchType;
-    private Double threshold;
-    private LocalDateTime createdAt;
-
-    public DuplicateRule() {
-    }
-
-    public DuplicateRule(Long id, String ruleName, String matchType, Double threshold) {
-        this.id = id;
-        this.ruleName = ruleName;
-        this.matchType = matchType;
-        this.threshold = threshold;
-    }
-
-    @PrePersist
-    public void onCreate() {
-        this.createdAt = LocalDateTime.now();
-    }
-
-    // getters & setters
-
-
+    private String ruleType;
+    private double weight;
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getRuleType() {
+        return ruleType;
     }
 
-    public String getRuleName() {
-        return ruleName;
+    public void setRuleType(String ruleType) {
+        this.ruleType = ruleType;
     }
 
-    public void setRuleName(String ruleName) {
-        this.ruleName = ruleName;
+    public double getWeight() {
+        return weight;
     }
 
-    public String getMatchType() {
-        return matchType;
-    }
-
-    public void setMatchType(String matchType) {
-        this.matchType = matchType;
-    }
-
-    public Double getThreshold() {
-        return threshold;
-    }
-
-    public void setThreshold(Double threshold) {
-        this.threshold = threshold;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 }

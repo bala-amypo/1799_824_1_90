@@ -9,31 +9,22 @@ public class Ticket {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-
+    private String subject;
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;   // ✅ ONLY User (NOT UserEntity)
-
-    public Ticket() {
-    }
+    private User user;
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getSubject() {
+        return subject;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
     public String getDescription() {
@@ -44,11 +35,11 @@ public class Ticket {
         this.description = description;
     }
 
-    public User getUser() {     // ✅ FIXED
+    public User getUser() {
         return user;
     }
 
-    public void setUser(User user) {   // ✅ FIXED
+    public void setUser(User user) {
         this.user = user;
     }
 }
