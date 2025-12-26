@@ -1,20 +1,9 @@
 package com.example.demo.config;
 
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.servers.Server;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.List;
 
 @Configuration
 public class JwtConfig {
-
-    @Bean
-    public OpenAPI customOpenAPI() {
-        return new OpenAPI()
-                .servers(List.of(
-                        new Server().url("https://9190.32procr.amypo.ai/")
-                ));
-    }
+    // JWT-related configuration only
+    // (Currently empty – this is perfectly OK)
 }
