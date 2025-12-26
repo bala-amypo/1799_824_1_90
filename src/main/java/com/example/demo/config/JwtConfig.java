@@ -8,13 +8,13 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-public class JwtUtil {
+public class JwtConfig {
 
-    // @Bean
-    // public OpenAPI customOpenAPI() {
-    //     return new OpenAPI()
-    //             .servers(List.of(
-    //                     new Server().url("http://localhost:9001")
-    //             ));
-    // }
+    @Bean
+    public OpenAPI customOpenAPI() {
+        return new OpenAPI()
+                .servers(List.of(
+                        new Server().url("https://9190.32procr.amypo.ai/")
+                ));
+    }
 }
