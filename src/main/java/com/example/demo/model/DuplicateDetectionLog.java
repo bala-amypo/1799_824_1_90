@@ -4,58 +4,50 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "duplicate_detection_logs")
 public class DuplicateDetectionLog {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     @ManyToOne
-    private Ticket originalTicket;
-
+    @JoinColumn(name = "ticket_id")
+    private Ticket ticket;
+    
     @ManyToOne
+    @JoinColumn(name = "matched_ticket_id")
     private Ticket matchedTicket;
-
-    private double matchScore;
-
+    
+    private Double matchScore;
+    
     private LocalDateTime detectedAt;
 
     public DuplicateDetectionLog() {
+        this.detectedAt = LocalDateTime.now();
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public Ticket getOriginalTicket() {
-        return originalTicket;
-    }
-
-    public void setOriginalTicket(Ticket originalTicket) {
-        this.originalTicket = originalTicket;
-    }
-
-    public Ticket getMatchedTicket() {
-        return matchedTicket;
-    }
-
-    public void setMatchedTicket(Ticket matchedTicket) {
+    public DuplicateDetectionLog(Ticket ticket, Ticket matchedTicket, Double matchScore) {
+        this.ticket = ticket;
         this.matchedTicket = matchedTicket;
-    }
-
-    public double getMatchScore() {
-        return matchScore;
-    }
-
-    public void setMatchScore(double matchScore) {
         this.matchScore = matchScore;
+        this.detectedAt = LocalDateTime.now();
     }
 
-    public LocalDateTime getDetectedAt() {
-        return detectedAt;
+    @PrePersist
+    protected void onCreate() {
+        if (detectedAt == null) {
+            detectedAt = LocalDateTime.now();
+        }
     }
 
-    public void setDetectedAt(LocalDateTime detectedAt) {
-        this.detectedAt = detectedAt;
-    }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public Ticket getTicket() { return ticket; }
+    public void setTicket(Ticket ticket) { this.ticket = ticket; }
+    public Ticket getMatchedTicket() { return matchedTicket; }
+    public void setMatchedTicket(Ticket matchedTicket) { this.matchedTicket = matchedTicket; }
+    public Double getMatchScore() { return matchScore; }
+    public void setMatchScore(Double matchScore) { this.matchScore = matchScore; }
+    public LocalDateTime getDetectedAt() { return detectedAt; }
+    public void setDetectedAt(LocalDateTime detectedAt) { this.detectedAt = detectedAt; }
 }
