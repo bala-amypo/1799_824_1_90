@@ -6,4 +6,3 @@ import org.springframework.context.annotation.Configuration;
 public class JwtConfig {
     // JWT-related configuration only
     // (Currently empty – this is perfectly OK)
-}
